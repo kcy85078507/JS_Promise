@@ -1,0 +1,99 @@
+*{  
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(0deg, #ffaed4, #9cebff, rgb(160, 160, 255));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    background-color: #fff1e8;
+    text-align: center;
+    color: #ffffff;
+    font-size: 10rem;
+    line-height: 420px;
+    width: 200px;
+    height: 400px;
+    margin-left: -100px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.116);
+    border-radius: 25px;
+    transform: perspective( 600px ) rotateY( 45deg );
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+/* 
+.one{
+    transform: perspective( 600px ) rotateY( 45deg );
+}
+
+.two{
+    transform: perspective( 600px ) rotateY( 50deg );
+}
+
+.three{
+    transform: perspective( 600px ) rotateY( 60deg );
+}
+
+.four{
+    transform: perspective( 600px ) rotateY( 70deg );
+}
+
+.five{
+    transform: perspective( 600px ) rotateY( 85deg );
+}
+
+.nine{
+    transform: perspective( 600px ) rotateY( -45deg );
+}
+
+.eight{
+    transform: perspective( 600px ) rotateY( -50deg );
+}
+
+.seven{
+    transform: perspective( 600px ) rotateY( -60deg );
+}
+
+.six{
+    transform: perspective( 600px ) rotateY( -70deg );
+} */
+
+
+.card:first-child{
+    margin-left: 0;
+}
+
+.card:active{
+    transform: scale(1.5);
+    z-index: 3;
+    color: #ff9673;
+    /* margin: auto; */
+    position: absolute; /*transform을 사용할시 카드 자리가 비어버린다*/
+}
+
+/* .one{
+    background: rgb(32, 105, 240);
+}
+
+.two{
+    background: rgb(69, 129, 240);
+}
+
+.three{
+    background:cornflowerblue;
+}
+
+.four{
+    background:rgb(148, 185, 255);
+}
+
+.five{
+    background:rgb(173, 202, 255);
+} */

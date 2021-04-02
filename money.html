@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        justify-self: center;
+        align-items: center;
+      }
+
+      ul {
+        width: 60px;
+        height: 100px;
+        border: 1px solid rgb(163, 163, 163);
+        border-radius: 25px;
+        color: black;
+        font-size: 1.5rem;
+        line-height: 6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>슬롯머신</h2>
+    <div class="container" id="dummy">
+      <ul id="slot-1"></ul>
+      <ul id="slot-2"></ul>
+      <ul id="slot-3"></ul>
+    </div>
+    <input type="button" onclick="startGame()" value="GOGO!" />
+
+    <script>
+      // function coinChange(money) {
+      //   //coinChange라는 함수를 만들었다. money값 변경 가능
+      //   const coins = [50000, 10000, 5000, 1000, 500, 100, 50, 10]; // coins 배열속에 돈 단위들을 넣었다.
+
+      //   const change = []; //change라는 빈 배열을 만들었다.
+      //   for (let i = 0; money !== 0; i++) {
+      //     //반복문 for문을 이용해서 i변수를 만들었다.
+      //     //money가 0이 아닐때까지 반복해라, 돌때마다 i는 하나씩 증가
+      //     const count =
+      //       money / coins[i] >= 1 ? Math.floor(money / coins[i]) : 0;
+      //     //money 나누기 coins배열 속에 i의 값이 1보다 크거나 같다면, money/coins[i]의 내림이고 아니면 0이다.
+      //     change[i] = {
+      //       //change 배열안의 값에
+      //       value: coins[i], // key = value, count, value = coins[i], count 를 집어 넣었다.
+      //       count: count,
+      //     };
+      //     money = count > 0 ? (money -= coins[i] * count) : money;
+      //   } // count가 0보다 크니? 참이면 coins[i]와 count를 곱한후 money에서 빼고 거짓이면 money를 뽑아내라.
+      //   return change;
+      // } // change 배열을 반환해라.
+      // console.log(coinChange(405620)); //coinChange함수값()을 뽑아내라.
+
+      // function getChange(value) {
+      //   //getChange라는 함수, value값 변경가능
+      //   let changes = [10000, 5000, 1000, 500, 100, 50, 10]; //changes 배열 할당
+      //   let won = Math.floor(value / 10) * 10; //won 변수는 value값을 10으로 나누고 소수점을 없애기 위해 10을 곱한다. 한자리 정수가 나온다.
+      //   let i = 0; //i는 0 할당
+      //   let counts = []; // counts라는 빈 배열을 만들었다.
+
+      //   while (true) { //while문 시작, 참일동안
+      //     if (won >= changes[i]) { //만약 won이 changes[i]보다 크거나 같으면
+      //       let count = Math.floor(won / changes[i]); //count의 변수에 changes[i]로 won을 나눈 값을 할당하고
+      //       won = won - changes[i] * count; //위에서 changes[i] 곱하기 count값을 곱한후 won에서 뺀 값을 won에 할당한다.
+      //       counts[i] = count;
+      //     } else {
+      //       counts[i] = 0;
+      //     }
+
+      //     i++;
+      //     if (won === 0) {
+      //       for (let j = 0; j < changes.length - i; j++) {
+      //         counts.push(0);
+      //       }
+      //       break;
+      //     }
+      //   }
+
+      //   changes.map((change, index) => {
+      //     console.log(`${change.toLocaleString()}원 ${counts[index]}개`);
+      //   });
+      // }
+      // getChange(68460);
+
+      function coinChange(money) {
+    const coins = [50000, 10000, 5000, 1000, 500, 100, 50, 10];
+    const change = [];
+    for (let i = 0; money !== 0; i++){
+        const count = money / coins[i] >= 1 ? Math.floor(money / coins[i]) : 0;
+        change[i] = {
+            value: coins[i],
+            count: count,
+        };
+        money = count > 0 ? (money -= coins[i] * count) : money;
+    }
+    return change;
+}
+console.log(coinChange(42454));
+
+    </script>
+  </body>
+</html>

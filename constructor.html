@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="www.naver.com" id="joinForm">
+        <input type="text" id="id">
+        <input type="password" id="pw">
+        <input type="submit" value="회원가입">
+    </form>
+</body>
+<script>
+    // input 
+    // vanila javascript, jquery, react, vue, angular
+    // input 에 접근하는 방법은 해당 요소를 선택하는 것부터 시작한다. 
+
+    (
+        () => {
+            const joinManger = {
+                isLoading : false
+            }
+
+            const accountManager = {
+                id : "",
+                pw : ""
+            }
+
+            const validationManager = { // .test메소드 - 대응되는 문자열이 있는지 검사하는 RegExp메소드. True나 False값을 반환한다.
+                id : (id) => {
+                    var engNum = /^[a-zA-Z0-9]*$/; //engNum함수는 영어+숫자로 이루어져있다. (정규표현식)
+                    if(id.length < 3){ //id 갯수가 3개보다 작을 경우
+                        return false //false값을 반환해라
+                    }else if(engNum.test(id)){ //위 if가 false라면 engNum변수의 id를 test한 값이 true면
+                        return true; //ture값을 반환해라
+                    }else{ //아니면
+                        return false; //false를 반환해라
+                    }
+                },
+                pw : (pw) => { 
+                    var engNum = /^[a-zA-Z0-9]*$/;
+                    if(id.length < 3){
+                        return false
+                    }else if(engNum.test(pw)){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            }
+
+            const join = (id, pw) => {
+                console.log(accountManager)
+
+                setTimeout(()=>{
+                    alert("회원가입이 완료되었습니다.")
+                    joinManger.isLoading = false;
+                },2000)
+            }
+
+            const formEvent = (e) => {
+                e.preventDefault();
+                if(joinManger.isLoading){
+                    alert("회원가입이 진행 중입니다 조금만 기다려주세요");
+                    return;
+                }
+                for(const input in accountManager){
+                    const presentValue = accountManager[input];
+                    const validationResult = validationManager[input](accountManager[input]);
+
+                    if(!validationResult){
+                        alert(`${input}을 확인해주세요 .`);
+                        return;
+                    }
+                }
+
+                alert("회원가입을 진행 합니다")
+                joinManger.isLoading = true;
+                join(id,pw)
+            }
+
+        
+            const onChange = (e) => {
+                accountManager[e.target.id] = e.target.value;
+            }            
+            
+            document.getElementById("joinForm").addEventListener("submit", formEvent);
+            document.getElementById("id").addEventListener("input",onChange);
+            document.getElementById("pw").addEventListener("input",onChange);
+        }
+    )();
+    //initializer
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: rgb(255, 250, 221);
+      }
+
+      #cols {
+        margin-top: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn {
+        margin: 30px;
+        padding: 20px;
+        border-radius: 50px;
+      }
+
+      #start {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-65%);
+        top: 500px;
+        border-radius: 10px;
+        width: 200px;
+      }
+
+      .gameResult {
+        position: absolute;
+        font-weight: 900;
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cols">
+      <button class="btn" data-value="1">홀</button>
+      <button class="btn" data-value="2">짝</button>
+    </div>
+    <button class="btn" id="start">Start!</button>
+
+    <script>
+      const cols = document.querySelector("#cols");
+      const start = document.querySelector("#start");
+      // function compareTwo() {
+        function clickHandler(event) {
+          let elem = event.target;
+          let a = elem.dataset.value;
+          var result = a == 2 ? "짝" : "홀";
+          console.log("당신의 선택은: " + result);
+        }
+        cols.addEventListener("click", clickHandler);
+
+        function clickStart(pressStart) {
+          let game = pressStart;
+          var aiCard = ["홀", "짝"];
+
+          function aiPick() {
+            return aiCard[Math.floor(Math.random() * aiCard.length)];
+          }
+
+          console.log("AI의 선택은: " + aiPick());
+        }
+        start.addEventListener("click", clickStart);
+
+        function compareTwo() {
+        if (result === aiPick()) {
+          console.log("XOXO !YOU WIN! XOXO");
+        } else {
+          return console.log(" YOU LOSE ㅠㅠ ");
+        }
+      }
+
+      // function compareTwo() {
+      //     if(result === aiPick()){
+      //       return console.log("XOXO !YOU WIN! XOXO");
+      //     }else{
+      //       return console.log(" YOU LOSE ㅠㅠ ");
+      //     }
+      //   }
+      // console.log("AI의 선택은: " + aiPick() + compareTwo());
+    </script>
+  </body>
+</html>

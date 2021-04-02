@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "..\\Mango"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\naver"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "prac"
+	}
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .container{
+        display: flex;
+        justify-self: center;
+        align-items: center;
+      }
+
+      ul{
+        width: 60px;
+        height: 100px;
+        border: 1px solid rgb(163, 163, 163);
+        border-radius: 25px;
+        color:black;
+        font-size: 1.5rem;
+        line-height: 6rem;
+
+      }
+
+    </style>
+</head>
+<body>
+  <h2>슬롯머신</h2>
+  <div class="container" id="dummy">
+    <ul id="slot-1"></ul>
+    <ul id="slot-2"></ul>
+    <ul id="slot-3"></ul>
+  </div>
+  <input type="button" onclick="startGame()" value="GOGO!" />
+
+    <script>
+    // const randValue = new Array("0", "1", "2");
+    //   function rand(a) {
+    //     return a[Math.floor(Math.random() * a.length)];
+    //   }
+
+    //  function startGame(){
+    //   const slots = document.getElementsByTagName("ul");
+    // }
+    //    for(let slot of slots){
+    //      slot.innerHTML =  (rand(randValue));
+    //    }
+
+    let slotOptions = ["cherry", "seven", "bell", "bar"];
+
+    function play() {
+         return [shuffle(slotOptions), shuffle(slotOptions), shuffle(slotOptions)];
+    }
+
+    let [slot1, slot2, slot3] = play();
+    //play()함수는 세개의 값을 뽑아낸 것.
+
+    function startGame(){
+    const slots = document.getElementsByTagName("ul");
+    for(let slot of slots){
+         slot.innerHTML =  (play());
+       }
+       console.log("?as")
+      }
+
+    if(slotOption === slotOption){
+      document.write("잭팟!");
+    }
+    
+      //  document.getElementById("slot-1").innerHTML =;
+      //  document.getElementById("slot-2").innerHTML = (rand(randValue));
+      //  document.getElementById("slot-3").innerHTML = (rand(randValue));
+     
+
+    </script>
+</body>
+</html>

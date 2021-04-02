@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .photoFrame {
+        width: 500px;
+        height: 500px;
+      }
+      .photoFrame:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>이미지 불러오기</h1>
+    <input type="file" id="fileInput" />
+    <div id="pictures"></div>
+  </body>
+  <script>
+    var fileInput = document.getElementById("fileInput");
+    //값이 변경될때 호출되는 이벤트 리스너
+    fileInput.addEventListener("change", function (e) {
+      var file = e.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = function () {
+        var photoFrame = document.createElement("div");
+        photoFrame.style = `background : url(${reader.result}); background-size: cover`;
+        photoFrame.className = "photoFrame";
+        document.getElementById("pictures").appendChild(photoFrame);
+        e.target.value = "";
+
+        photoFrame.addEventListener("click", function () {
+          document.getElementById("pictures").removeChild(photoFrame); 
+          //클릭하면 사라지게 되는 기능
+        });
+      };
+    });
+  </script>
+</html>

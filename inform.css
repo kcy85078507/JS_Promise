@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.form{
+    position: relative;
+    margin-top: 40px;
+    width: 400px;
+}
+
+input{
+    border: none;
+    border-bottom: 3px solid #34495e;
+    padding: 10px 0;
+    width: 400px;
+    display: block;
+    font-size: 1.2rem;
+}
+
+label{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 1.2rem;
+    color: #333;
+    transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+}
+
+input:focus{
+    border: none;
+    outline:none;
+}
+
+input:focus ~ label, .form input:valid ~ label {
+    top: -10px;
+    font-size: 0.8rem;
+    left: 2px;
+    color: rgb(242, 38, 38);
+}
+
+.bar:before, .bar:after{
+    content:"";
+    height: 3.5px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    transition: 0.2s ease all;
+}
+
+.bar:before{
+    left: 50%;
+}
+
+.bar:after{
+    right: 50%;
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after{
+    width: 50%;
+}
+
+input:valid ~ .bar:before, input:valid ~ .bar:after{
+    background: #2ecc71;
+    color: #2ecc71;
+}
+
+input:invalid ~ .bar:before, input:invalid ~ .bar:after{
+    background: #e74c3c;
+}

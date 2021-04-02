@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content:
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+
+h1 {
+  text-align: center;
+  z-index: 1;
+  padding: 30px 50px 50px 50px;
+  position: fixed;
+  height: 110px;
+  width: 100%;
+  color: #ffffff;
+  background: -webkit-gradient(
+    radial,
+    50% 100%,
+    10,
+    50% 100%,
+    40,
+    from(#369a7e),
+    color-stop(0.49, #369a7e),
+    color-stop(0.51, #258569),
+    to(#369a7e)
+  );
+  background-size: 49px 100%;
+}
+
+.img {
+  width: 500px;
+  height: 200px;
+  border-radius: 68% 23% 46% 24% / 55% 66% 68% 48%;
+  background-image: url("img.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 900;
+  margin: 50px;
+
+  color: rgb(255, 0, 200);
+}
+
+.Normal {
+  mix-blend-mode: normal;
+}
+
+.Multiply {
+  mix-blend-mode: multiply;
+}
+
+.Screen {
+  mix-blend-mode: screen;
+}
+
+.Overlay {
+  mix-blend-mode: overlay;
+}
+
+.darken {
+  mix-blend-mode: darken;
+}
+
+.lighten {
+  mix-blend-mode: lighten;
+}
+
+.color-dodge {
+  mix-blend-mode: color-dodge;
+}
+
+.color-burn {
+  mix-blend-mode: color-burn;
+}
+
+.hard-light {
+  mix-blend-mode: hard-light;
+}
+
+.soft-light {
+  mix-blend-mode: soft-light;
+}
+
+.difference {
+  mix-blend-mode: difference;
+}
+
+.exclusion {
+  mix-blend-mode: exclusion;
+}
+
+.hue {
+  mix-blend-mode: hue;
+}
+
+.saturation {
+  mix-blend-mode: saturation;
+}
+
+.color {
+  mix-blend-mode: color;
+}
+
+.luminosity {
+  mix-blend-mode: luminosity;
+}
