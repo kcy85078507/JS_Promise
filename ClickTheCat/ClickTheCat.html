@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClickGame</title>
+      </script>
+  </head>
+  <style>
+    body{
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(254, 166, 144);
+    }
+    
+    .box {
+      width: 100px;
+      height: 100px;
+      background-image: url("cat.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+    }
+
+    #score{
+      color: white;
+      font-size: 2rem;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+  </style>
+  <body id="body"></body> 
+  <!-- <button id="startGame" class="start-btn">버튼</button> -->
+  <!-- <h2 id="score">점수</h2>    -->
+  <script>
+    function makeRandPositionBox() {
+      const box = document.createElement("div");
+      box.className = "box";
+      function windowSize() {
+      }
+      box.style.top = `${Math.random() * window.innerHeight}px`;
+      box.style.left = `${Math.random() * window.innerWidth}px`;
+      box.addEventListener("click", () => {
+        box.remove();
+
+
+        // var startBtn = document.querySelector('.start-btn');
+        // startBtn.addEventListener('click', startGame);
+        // function startGame() {
+        //   startBtn.removeEventListener('click', startGame);
+        //   startBtn.style.color = 'red';
+        //   getPoint = 0;
+        //   turn = 0;
+        //   setTimeout(makeRandPositionBox, 1000);
+        // }
+
+
+
+      var audio = new Audio("meow.mp3");
+      audio.loop = false;
+      audio.volume = 1;
+      audio.play();
+      audio.currentTime = 0;
+    });
+      body.appendChild(box);
+    }
+    setInterval(makeRandPositionBox, 1000)
+
+    
+  </script>
+</html>
